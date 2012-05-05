@@ -12,9 +12,9 @@ an array prototype extension for performing statistical calculations
 
 ```js
 
-var Set = require('stats-array')
+var StatsArray = require('stats-array')
 
-var arr = [ 50, 40, 30, 20, 30, 40, 50 ])
+var arr = [ 50, 40, 30, 20, 30, 40, 50 ]
 
 console.log(arr.stdDeviation()) 
 // 11.126972805283735
@@ -116,6 +116,8 @@ calculate the confidence of `value` which was created from a set of `length` usi
 `npm install -g tap && npm test`
 
 ## Benchmarks
+
+Extending the Array.prototype causes no significant loss in performance compared with native arrays.
 
 `node bench/stats-array.js`
 
