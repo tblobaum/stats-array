@@ -1,0 +1,16 @@
+{
+  "author": "Thomas Blobaum <tblobaum@gmail.com> (https://github.com/tblobaum/)",
+  "name": "stats-array",
+  "description": "array prototype for statistical calculations",
+  "version": "0.1.0",
+  "repository": {
+    "url": ""
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  },
+  "main": "stats-array"
+}
