@@ -19,7 +19,7 @@ var set1 = new Set([ 50, 40, 30, 20, 30, 40, 50 ])
 console.log(set1.stdDeviation()) 
 // 11.126972805283735
 
-console.log(set1.stdDeviation(0.05)) 
+console.log(set1.stdDeviation(0.95)) 
 // also calculates 95% confidence interval
 // {
 //   confidence: 0.95, 
