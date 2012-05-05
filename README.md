@@ -46,7 +46,7 @@ calculate the standard deviation of the set and return the value, or optionally 
 calculate the variance of the set
 
 ### .toMatrix(quadrants)
-takes a number and divides the set into that many quadrants, creating a matrix or multi-dimensional array
+divides the set into quadrants
 
 ### .sortAsc()
 sort the set with smallest values first
