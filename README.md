@@ -45,23 +45,11 @@ calculate the standard deviation of the set and return the value, or optionally 
 ### .variance([bool])
 calculate the variance of the set
 
-### .toMatrix(quadrants)
-divides the set into quadrants
-
-### .sortAsc()
-sort the set with smallest values first
-
-### .sortDesc()
-sort the set with largest values first
-
 ### .max()
 maximum value in the set
 
 ### .min()
 minimum value in the set
-
-### .round()
-calls Math.round on every value in the set
 
 ### .sum()
 sum of all values in the set
@@ -71,6 +59,18 @@ returns the average
 
 ### .range()
 returns the range between the min and max values
+
+### .toMatrix(quadrants)
+divides the set into quadrants
+
+### .sortAsc()
+sort the set with smallest values first
+
+### .sortDesc()
+sort the set with largest values first
+
+### .round()
+calls Math.round on every value in the set
 
 ### .abs()
 calls Math.abs on every value in the set
@@ -104,9 +104,6 @@ calls Math.sin on every value in the set
 
 ### .sqrt()
 calls Math.sqrt on every value in the set
-
-### .tan()
-calls Math.tan on every value in the set
 
 ### .tan()
 calls Math.tan on every value in the set
