@@ -2,6 +2,8 @@
 
 an array prototype extension for performing statistical calculations
 
+[![Build Status](https://secure.travis-ci.org/tblobaum/stats-array.png)](http://travis-ci.org/tblobaum/stats-array)
+
 ## Install
 
 `npm install stats-array`
