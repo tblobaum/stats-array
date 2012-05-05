@@ -1,17 +1,17 @@
 
-function ctor (array) { 
-  console.log('new stats array')
-  var x = Array.prototype.slice.call(array || [])
-  x = extendStats(x)
-  return x
+function statsArray (array) { 
+  // console.log('new stats array')
+  var arr = Array.prototype.slice.call(array || [])
+  arr = extendStats(arr)
+  return arr
 }
 
-function extendStats (proto) {
+function extendStats (object) {
 
   //
   // Math applied to an array of numbers
   //
-  Object.defineProperty(proto, 'abs', {
+  Object.defineProperty(object, 'abs', {
     value: function () {
       for (var i=0; i<this.length; i++) this[i] = Math.abs(this[i])
       return this
@@ -19,7 +19,7 @@ function extendStats (proto) {
     , writable: true
   })
 
-  Object.defineProperty(proto, 'acos', {
+  Object.defineProperty(object, 'acos', {
     value: function () {
       for (var i=0; i<this.length; i++) this[i] = Math.acos(this[i])
       return this
@@ -27,7 +27,7 @@ function extendStats (proto) {
     , writable: true
   })
 
-  Object.defineProperty(proto, 'asin', {
+  Object.defineProperty(object, 'asin', {
     value: function () {
       for (var i=0; i<this.length; i++) this[i] = Math.asin(this[i])
       return this
@@ -35,7 +35,7 @@ function extendStats (proto) {
     , writable: true
   })
 
-  Object.defineProperty(proto, 'atan', {
+  Object.defineProperty(object, 'atan', {
     value: function () {
       for (var i=0; i<this.length; i++) this[i] = Math.atan(this[i])
       return this
@@ -43,7 +43,7 @@ function extendStats (proto) {
     , writable: true
   })
 
-  Object.defineProperty(proto, 'ceil', {
+  Object.defineProperty(object, 'ceil', {
     value: function () {
       for (var i=0; i<this.length; i++) this[i] = Math.ceil(this[i])
       return this
@@ -51,7 +51,7 @@ function extendStats (proto) {
     , writable: true
   })
 
-  Object.defineProperty(proto, 'cos', {
+  Object.defineProperty(object, 'cos', {
     value: function () {
       for (var i=0; i<this.length; i++) this[i] = Math.cos(this[i])
       return this
@@ -59,7 +59,7 @@ function extendStats (proto) {
     , writable: true
   })
 
-  Object.defineProperty(proto, 'exp', {
+  Object.defineProperty(object, 'exp', {
     value: function () {
       for (var i=0; i<this.length; i++) this[i] = Math.exp(this[i])
       return this
@@ -67,7 +67,7 @@ function extendStats (proto) {
     , writable: true
   })
 
-  Object.defineProperty(proto, 'floor', {
+  Object.defineProperty(object, 'floor', {
     value: function () {
       for (var i=0; i<this.length; i++) this[i] = Math.floor(this[i])
       return this
@@ -75,7 +75,7 @@ function extendStats (proto) {
     , writable: true
   })
 
-  Object.defineProperty(proto, 'log', {
+  Object.defineProperty(object, 'log', {
     value: function () {
       for (var i=0; i<this.length; i++) this[i] = Math.log(this[i])
       return this
@@ -83,53 +83,53 @@ function extendStats (proto) {
     , writable: true
   })
 
-  Object.defineProperty(proto, 'pow', {
-    value: function (exp) {
-      for (var i=0; i<this.length; i++) this[i] = Math.pow(this[i], exp)
+  Object.defineProperty(object, 'pow', {
+    value: function (x) {
+      for (var i=0; i<this.length; i++) this[i] = Math.pow(this[i], x)
       return this
     }
     , writable: true
   })
 
-  Object.defineProperty(proto, 'sin', {
-    value: function (exp) {
+  Object.defineProperty(object, 'sin', {
+    value: function () {
       for (var i=0; i<this.length; i++) this[i] = Math.sin(this[i])
       return this
     }
     , writable: true
   })
 
-  Object.defineProperty(proto, 'sqrt', {
-    value: function (exp) {
+  Object.defineProperty(object, 'sqrt', {
+    value: function () {
       for (var i=0; i<this.length; i++) this[i] = Math.sqrt(this[i])
       return this
     }
     , writable: true
   })
 
-  Object.defineProperty(proto, 'tan', {
-    value: function (exp) {
+  Object.defineProperty(object, 'tan', {
+    value: function () {
       for (var i=0; i<this.length; i++) this[i] = Math.tan(this[i])
       return this
     }
     , writable: true
   })
 
-  Object.defineProperty(proto, 'max', {
+  Object.defineProperty(object, 'max', {
     value: function () {
       return Math.max.apply({}, this)
     }
     , writable: true
   })
 
-  Object.defineProperty(proto, 'min', {
+  Object.defineProperty(object, 'min', {
     value: function () {
       return Math.min.apply({}, this)
     }
     , writable: true
   })
 
-  Object.defineProperty(proto, 'round', {
+  Object.defineProperty(object, 'round', {
     value: function () {
       for (var i=0; i<this.length; i++) this[i] = Math.round(this[i])
       return this
@@ -140,7 +140,7 @@ function extendStats (proto) {
   //
   // Additional statistical functions applied to an array of numbers
   //
-  Object.defineProperty(proto, 'sum', {
+  Object.defineProperty(object, 'sum', {
     value: function () {
       var sum = 0
       for (var i=0; i<this.length; i++) sum += Number(this[i])
@@ -149,14 +149,14 @@ function extendStats (proto) {
     , writable: true
   })
 
-  Object.defineProperty(proto, 'mean', {
+  Object.defineProperty(object, 'mean', {
     value: function () {
-      return Math.round(this.sum() / this.length)
+      return this.sum() / this.length
     }
     , writable: true
   })
 
-  Object.defineProperty(proto, 'range', {
+  Object.defineProperty(object, 'range', {
     value: function () {
       return this.max() - this.min()
     }
@@ -164,26 +164,29 @@ function extendStats (proto) {
   })
 
   // bool indicates population (default) or sample
-  Object.defineProperty(proto, 'variance', {
+  Object.defineProperty(object, 'variance', {
     value: function (bool) {
       var variance = 0
         , mean = this.mean()
         , sum = 0
       for (var i=0; i<this.length; i++) sum += Math.pow((this[i]-mean), 2);
-      return sum/(this.length-(bool?1:0))
+      return sum / ( this.length - ((bool === false) ? 0 : 1) )
     }
     , writable: true
   })
 
   // bool indicates population (default) or sample
-  Object.defineProperty(proto, 'standardDeviation', {
-    value: function (bool) {
-      return Math.sqrt(this.variance(bool))
+  Object.defineProperty(object, 'stdDeviation', {
+    value: function (i, bool) {
+      if (typeof i != 'number')
+        return Math.sqrt(this.variance(i))
+      else 
+        return confidenceInterval(Math.sqrt(this.variance(bool)), this.length, i)
     }
     , writable: true
   })
 
-  Object.defineProperty(proto, 'sortAsc', {
+  Object.defineProperty(object, 'sortAsc', {
     value: function () { 
       return this.sort(function (a,b) {
         return a - b
@@ -192,7 +195,7 @@ function extendStats (proto) {
     , writable: true
   })
 
-  Object.defineProperty(proto, 'sortDesc', {
+  Object.defineProperty(object, 'sortDesc', {
     value: function () { 
       return this.sort(function (a,b) {
         return b - a
@@ -201,22 +204,15 @@ function extendStats (proto) {
     , writable: true
   })
 
-  //
-  // Fix length property
-  //
-  // Object.defineProperty(proto, 'length', {
-  //   enumerable: false
-  // })
+  Object.defineProperty(object, 'toMatrix', {
+    value: function (quadrants) {
+      var indexes = new statsArray()
+        , matrix = new statsArray()
+        , matrixLength = quadrants || 2
 
-  Object.defineProperty(proto, 'matrix', {
-    value: function (num) {
-      var indexes = new ctor()
-        , matrix = new ctor()
-        , matrixLength = num || 2
-
-      this.sortAsc()
+      // this.sortAsc()
       for (var i=0; i<matrixLength; i++) {
-        indexes[i] = new ctor()
+        indexes[i] = new statsArray()
 
         if (!!indexes[i-1]) 
           indexes[i][0] = indexes[i-1][1]
@@ -228,7 +224,7 @@ function extendStats (proto) {
         else 
           indexes[i][1] = Math.round((this.length)*(i+1) / matrixLength) //-1
 
-        matrix[i] = new ctor(this.slice(indexes[i][0], indexes[i][1]))
+        matrix[i] = new statsArray(this.slice(indexes[i][0], indexes[i][1]))
 
       }
       return matrix
@@ -236,8 +232,100 @@ function extendStats (proto) {
     , writable: true
   })
 
-  return proto
+  Object.defineProperty(object, 'confidenceInterval', {
+    value: confidenceInterval
+    , writable: true
+  })
+
+  return object
 
 }
 
-module.exports = ctor
+function confidenceInterval (value, length, confidence) {
+  var alpha = (1000 - confidence * 1000) / 1000
+  var l = Math.sqrt((length - 1) / AChiSq((alpha/2), length - 1)) 
+  var u = Math.sqrt((length - 1) / AChiSq(1 - (alpha/2), length - 1))
+  return {
+      confidence: 1 - alpha
+    , lower: value * l 
+    , upper: value * u 
+    , value: value
+    , length: length
+    , alpha: alpha
+  }
+}
+
+function AChiSq (p, n) { 
+  var v = 0.5
+  var dv = 0.5
+  var x = 0
+
+  while(dv > Math.pow(10, -15)) {
+    x = 1 / v - 1
+    dv = dv / 2
+
+    if (ChiSq(x, n) > p) {
+      v = v - dv
+    }
+    else {
+      v = v + dv
+    } 
+  }
+  return x
+}
+
+function Norm (z) {
+  var q = z * z
+  if (Math.abs(z) > 7)
+    return (1 - 1 / q + 3 / (q * q)) * Math.exp(-q / 2)/(Math.abs(z) * Math.sqrt(Math.PI / 2) )
+  else
+    return ChiSq(q, 1)
+}
+
+function ChiSq (x, n) {
+  if (x > 1000 || n > 1000) {
+    var q = Norm(( Math.pow(x / n, 1/3) + 2 / (9 * n)-1) / Math.sqrt(2/(9 * n)) ) / 2
+
+    if (x > n) 
+      return q
+    else
+      return 1 - q
+  }
+
+  var p = Math.exp(-0.5 * x)
+
+  if((n % 2)==1) { 
+    p = p * Math.sqrt(2 * x / Math.PI)
+  }
+
+  var k = n
+
+  while(k >= 2) {
+    p = p * x / k
+    k = k - 2
+  }
+
+  var t = p
+  var a = n
+
+  while(t > Math.pow(10, -15) * p) {
+    a = a + 2
+    t = t * x / a;
+    p = p + t
+  }
+
+  return 1 - p
+
+}
+
+// function calppm (conf, fails, total) {
+//   var E5 = conf / 100
+
+//   var I5 = AChiSq((1 - E5), (2 * (fails + 1))) * 1000000/(2 * total)
+
+//   return Math.round(I5)
+// }
+
+// console.log(calppm(60, 0, 50000))
+
+module.exports = statsArray

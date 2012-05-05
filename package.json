@@ -6,11 +6,16 @@
   "repository": {
     "url": ""
   },
-  "dependencies": {},
+  "dependencies": {
+    "tap": "*"
+  },
   "devDependencies": {},
   "optionalDependencies": {},
   "engines": {
     "node": "*"
+  },
+  "scripts": {
+    "test": "node test/stats-array.js"
   },
   "main": "stats-array"
 }
