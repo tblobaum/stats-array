@@ -4,7 +4,8 @@
   "description": "array prototype for statistical calculations",
   "version": "0.1.1",
   "repository": {
-    "url": ""
+    "type": "git",
+    "url": "https://tblobaum@github.com/tblobaum/stats-array.git"
   },
   "dependencies": {
     "tap": "*"
