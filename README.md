@@ -14,12 +14,12 @@ an array prototype extension for performing statistical calculations
 
 var Set = require('stats-array')
 
-var set1 = new Set([ 50, 40, 30, 20, 30, 40, 50 ])
+var arr = [ 50, 40, 30, 20, 30, 40, 50 ])
 
-console.log(set1.stdDeviation()) 
+console.log(arr.stdDeviation()) 
 // 11.126972805283735
 
-console.log(set1.stdDeviation(0.95)) 
+console.log(arr.stdDeviation(0.95)) 
 // also calculates 95% confidence interval
 // {
 //   confidence: 0.95, 
@@ -34,7 +34,7 @@ console.log(set1.stdDeviation(0.95))
 
 ## API
 
-### new Set(Array)
+### []
 
 ### .stdDeviation([confidence], [bool])
 calculate the standard deviation of the set and return the value, or optionally pass in a confidence interval (0.01-0.99) which will change the return value to an object hash
@@ -57,8 +57,8 @@ returns the average
 ### .range()
 returns the range between the min and max values
 
-### .toMatrix(quadrants)
-divides the set into quadrants
+### .toMatrix(number)
+divides the set into a matrix of subarrays
 
 ### .sortAsc()
 sort the set with smallest values first
@@ -110,6 +110,14 @@ calls Math.sin on every value in the set
 
 ### .confidenceInterval(value, length, confidence)
 calculate the confidence of `value` which was created from a set of `length` using a gaussian (normal) distribution
+
+## Tests
+
+`npm install -g tap && npm test`
+
+## Benchmarks
+
+`node bench/stats-array.js`
 
 ## License
 

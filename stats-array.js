@@ -1,10 +1,12 @@
 
-function statsArray (array) { 
-  // console.log('new stats array')
-  var arr = Array.prototype.slice.call(array || [])
-  arr = extendStats(arr)
-  return arr
-}
+// function statsArray (array) { 
+//   // console.log('new stats array')
+//   var arr = Array.prototype.slice.call(array || [])
+//   arr = extendStats(arr)
+//   return arr
+// }
+
+extendStats(Array.prototype)
 
 function extendStats (object) {
 
@@ -205,14 +207,14 @@ function extendStats (object) {
   })
 
   Object.defineProperty(object, 'toMatrix', {
-    value: function (quadrants) {
-      var indexes = new statsArray()
-        , matrix = new statsArray()
-        , matrixLength = quadrants || 2
+    value: function (quantiles) {
+      var indexes = []
+        , matrix = []
+        , matrixLength = quantiles || 2
 
       // this.sortAsc()
       for (var i=0; i<matrixLength; i++) {
-        indexes[i] = new statsArray()
+        indexes[i] = []
 
         if (!!indexes[i-1]) 
           indexes[i][0] = indexes[i-1][1]
@@ -224,7 +226,7 @@ function extendStats (object) {
         else 
           indexes[i][1] = Math.round((this.length)*(i+1) / matrixLength) //-1
 
-        matrix[i] = new statsArray(this.slice(indexes[i][0], indexes[i][1]))
+        matrix[i] = this.slice(indexes[i][0], indexes[i][1])
 
       }
       return matrix
@@ -318,14 +320,4 @@ function ChiSq (x, n) {
 
 }
 
-// function calppm (conf, fails, total) {
-//   var E5 = conf / 100
-
-//   var I5 = AChiSq((1 - E5), (2 * (fails + 1))) * 1000000/(2 * total)
-
-//   return Math.round(I5)
-// }
-
-// console.log(calppm(60, 0, 50000))
-
-module.exports = statsArray
+module.exports = Array
