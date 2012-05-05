@@ -36,9 +36,6 @@ console.log(set1.stdDeviation(0.95))
 
 ### new Set(Array)
 
-### .confidenceInterval(value, length, confidence)
-calculate the confidence of `value` which was created from a set of `length` using a gaussian (normal) distribution
-
 ### .stdDeviation([confidence], [bool])
 calculate the standard deviation of the set and return the value, or optionally pass in a confidence interval (0.01-0.99) which will change the return value to an object hash
 
@@ -110,6 +107,9 @@ calls Math.tan on every value in the set
 
 ### .sin()
 calls Math.sin on every value in the set
+
+### .confidenceInterval(value, length, confidence)
+calculate the confidence of `value` which was created from a set of `length` using a gaussian (normal) distribution
 
 ## License
 
