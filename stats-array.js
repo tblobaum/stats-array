@@ -1,13 +1,4 @@
 
-// function statsArray (array) { 
-//   // console.log('new stats array')
-//   var arr = Array.prototype.slice.call(array || [])
-//   arr = extendStats(arr)
-//   return arr
-// }
-
-extendStats(Array.prototype)
-
 function extendStats (object) {
 
   //
@@ -319,5 +310,7 @@ function ChiSq (x, n) {
   return 1 - p
 
 }
+
+extendStats(Array.prototype)
 
 module.exports = Array
