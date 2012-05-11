@@ -230,6 +230,24 @@ function extendStats (object) {
     , writable: true
   })
 
+  Object.defineProperty(object, 'unique',{
+    value: function () {
+      var o = {}
+        , i
+        , l = this.length
+        , r = []
+
+        for(var i=0; i<l; i++) 
+          o[this[i]] = this[i]
+
+        for(var i in o) 
+          r.push(o[i])
+
+        return r
+    }
+    , writable: true
+  })
+
   return object
 
 }

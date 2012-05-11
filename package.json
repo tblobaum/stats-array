@@ -7,9 +7,7 @@
     "type": "git",
     "url": "https://tblobaum@github.com/tblobaum/stats-array.git"
   },
-  "dependencies": {
-    "tap": "*"
-  },
+  "dependencies": { },
   "devDependencies": {},
   "optionalDependencies": {},
   "engines": {
