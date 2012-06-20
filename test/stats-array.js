@@ -18,6 +18,7 @@ test('Arrays should have methods', function (t) {
   t.ok([].max, 'max')
   t.ok([].min, 'min')
   t.ok([].round, 'round')
+  t.ok([].roundTo, 'roundTo')
   t.ok([].sum, 'sum')
   t.ok([].mean, 'mean')
   t.ok([].range, 'range')
@@ -34,42 +35,45 @@ test('methods should return a stats array', function (t) {
   t.deepEquals([1,-5,10].abs()
     , [1,5,10]
     , 'Math.abs each')
-  t.deepEquals([0.1,0.2,0.3].acos()
-    , [1.4706289056333368,1.369438406004566,1.2661036727794992]
+  t.deepEquals([0.1,0.2,0.3].acos().roundTo(1000)
+    , [1.471,1.369,1.266]
     , 'Math.acos each')
-  t.deepEquals([0.1,0.2,0.3].asin()
-    , [0.1001674211615598, 0.2013579207903308, 0.3046926540153975]
+  t.deepEquals([0.1,0.2,0.3].asin().roundTo(1000)
+    , [0.100, 0.201, 0.305]
     , 'Math.asin each')
-  t.deepEquals([1,-5,10].atan()
-    , [0.7853981633974483, -1.373400766945016, 1.4711276743037347]
+  t.deepEquals([1,-5,10].atan().roundTo(1000)
+    , [0.785, -1.373, 1.471]
     , 'Math.atan each')
   t.deepEquals([-0.1,4.1,9.9].ceil()
     , [0, 5, 10]
     , 'Math.ceil each')
-  t.deepEquals([-0.1,4.1,9.9].exp()
-    , [0.9048374180359595, 60.34028759736195, 19930.370438230297]
+  t.deepEquals([-0.1,4.1,9.9].exp().roundTo(1000)
+    , [0.905, 60.340, 19930.370]
     , 'Math.exp each')
   t.deepEquals([-0.1,4.1, 9].floor()
     , [-1, 4, 9]
     , 'Math.floor each')
-  t.deepEquals([1,5,10].log()
-    , [0, 1.6094379124341003, 2.302585092994046]
+  t.deepEquals([1,5,10].log().roundTo(1000)
+    , [0, 1.609, 2.303]
     , 'Math.log each')
   t.deepEquals([1,-5,10].pow(4)
     , [1, 625, 10000]
     , 'Math.pow(4) each')
-  t.deepEquals([1,-180,360].sin()
-    , [0.8414709848078965, 0.8011526357338304, 0.9589157234143065]
+  t.deepEquals([1,-180,360].sin().roundTo(1000)
+    , [0.841, 0.801, 0.959]
     , 'Math.sin() each')
   t.deepEquals([9, 4, 16].sqrt()
     , [3, 2, 4]
     , 'Math.sqrt each')
-  t.deepEquals([9, 4, 16].tan()
-    , [-0.45231565944180985, 1.1578212823495775, 0.3006322420239034]
+  t.deepEquals([9, 4, 16].tan().roundTo(1000)
+    , [-0.452, 1.158, 0.301]
     , 'Math.tan each')
   t.deepEquals([1.4, 4.6, 9.99].round()
     , [1, 5, 10]
     , 'Math.round each')
+  t.deepEquals([1.444, 4.666, 9.999].roundTo(10)
+    , [1.4, 4.7, 10.0]
+    , 'Math.roundTo each')
   t.deepEquals([2,5,7,2,4].sortAsc()
     , [2,2,4,5,7]
     , 'sortAsc')
