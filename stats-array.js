@@ -130,6 +130,17 @@ function extendStats (object) {
     , writable: true
   })
 
+  Object.defineProperty(object, 'roundTo', {
+    value: function (to) {
+      for (var i=0; i<this.length; i++) {
+        this[i] = Math.round(this[i] * to) / to
+      }
+      return this
+    }
+    , writable: true
+  })
+
+
   //
   // Additional statistical functions applied to an array of numbers
   //
