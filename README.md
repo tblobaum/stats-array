@@ -69,6 +69,22 @@ sort the set with largest values first
 ### .round()
 calls Math.round on every value in the set
 
+### .roundTo(num)
+round every value to `num` places
+
+```js
+
+[ 1.2555, 1.2557, 1.256001 ].roundTo(1000)
+// => [ 1.256, 1.256, 1.256 ]
+
+[ 955642, 443234, 350460.256001 ].roundTo(0.001)
+// => [ 956000, 443000, 350000 ]
+
+[ 1.2555, 1.2557, 1.256001 ].tan().roundTo(100)
+// => [ 3.07, 3.07, 3.07 ]
+
+```
+
 ### .abs()
 calls Math.abs on every value in the set
 
