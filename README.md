@@ -54,6 +54,9 @@ sum of all values in the set
 ### .mean()
 returns the average
 
+### .marginOfError(confidence)
+returns the margin of error for a determined confidence value (0.01-0.99).
+
 ### .range()
 returns the range between the min and max values
 

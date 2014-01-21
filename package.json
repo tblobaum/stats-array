@@ -1,5 +1,11 @@
 {
-  "author": "Thomas Blobaum <tblobaum@gmail.com> (https://github.com/tblobaum/)",
+  "author": "Thomas Blobaum <tblobaum@gmail.com> (https://github.com/tblobaum/)",  
+  "contributors": [ 
+    {
+      "name": "Pedro Baptista Afonso",
+      "email": "mail@pedroafonso.net"
+    } 
+  ],
   "name": "stats-array",
   "description": "array prototype for statistical calculations",
   "version": "0.1.2",

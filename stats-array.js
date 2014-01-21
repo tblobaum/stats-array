@@ -1,3 +1,4 @@
+var sdist = require ('./libs/statistics-distributions.js');
 
 function extendStats (object) {
 
@@ -140,7 +141,6 @@ function extendStats (object) {
     , writable: true
   })
 
-
   //
   // Additional statistical functions applied to an array of numbers
   //
@@ -188,6 +188,11 @@ function extendStats (object) {
         return confidenceInterval(Math.sqrt(this.variance(bool)), this.length, i)
     }
     , writable: true
+  })
+
+  Object.defineProperty(object, 'marginOfError', {
+    value: marginOfError, 
+    writable: true
   })
 
   Object.defineProperty(object, 'sortAsc', {
@@ -261,6 +266,12 @@ function extendStats (object) {
 
   return object
 
+}
+
+function marginOfError (alpha) {
+  var criticalValue = sdist.udistr((1-alpha)/2)
+  var stdError = this.stdDeviation() / Math.sqrt(this.length)
+  return criticalValue * stdError
 }
 
 function confidenceInterval (value, length, confidence) {
