@@ -190,7 +190,6 @@ function extendStats (object) {
     , writable: true
   })
 
-  // bool indicates population (default) or sample
   Object.defineProperty(object, 'marginOfError', {
     value: marginOfError, 
     writable: true
