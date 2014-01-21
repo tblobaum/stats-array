@@ -268,11 +268,10 @@ function extendStats (object) {
 
 }
 
-// Computes marginOfErro for 0.90 of confidence
 function marginOfError (alpha) {
-  var criticalValue = sdist.udistr((1-alpha)/2); // for 0.90 of confidence
+  var criticalValue = sdist.udistr((1-alpha)/2)
   var stdError = this.stdDeviation() / Math.sqrt(this.length)
-  return criticalValue * stdError;
+  return criticalValue * stdError
 }
 
 function confidenceInterval (value, length, confidence) {
