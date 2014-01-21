@@ -91,6 +91,8 @@ test('methods should return a number', function (t) {
   t.deepEquals(set2.min(), 20, 'min')
   t.deepEquals(set2.sum(), 260, 'sum')
   t.deepEquals(set2.mean(), 37.142857142857146, 'mean')
+  t.deepEquals(set2.marginOfError(0.90), 6.917792118582226, 'marginOfError 0.90')
+  t.deepEquals(set2.marginOfError(0.95), 8.242976808572656, 'marginOfError 0.95')
   t.deepEquals(set2.range(), 30, 'range')
   t.deepEquals(set2.variance(false)
     , 106.12244897959182
